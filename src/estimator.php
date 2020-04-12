@@ -1,5 +1,10 @@
 <?php
-
+$data['region']=['name'=>'Africa','avgAge'=>19.7,'avgDailyIncomeInUSD'=>5,'avgDailyIncomePopulation'=>0.71];
+$data['periodType']="days";
+$data['timeToElapse']= 58;
+$data['reportedCases']= 674;
+$data['population']= 66622705;
+$data['totalHospitalBeds']= 1380614;
 $data=json_encode($data);
 
 
