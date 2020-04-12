@@ -1,16 +1,7 @@
 <?php
-$data['region']=['name'=>'Africa','avgAge'=>19.7,'avgDailyIncomeInUSD'=>5,'avgDailyIncomePopulation'=>0.71];
-$data['periodType']="days";
-$data['timeToElapse']= 58;
-$data['reportedCases']= 674;
-$data['population']= 66622705;
-$data['totalHospitalBeds']= 1380614;
-$data=json_encode($data);
-
-
-
 function doCompute($input_array,$data_array,$input_data)
 {
+    $input_array['data']=$data_array;
     foreach($input_data as $x) {
         if($x[2]==1)
         {
@@ -33,7 +24,7 @@ function doCompute($input_array,$data_array,$input_data)
 function covid19ImpactEstimator($data)
 {
     $data1=array();
-    $data=json_decode($data,true);
+    //$data=json_decode($data,true);
     $t=array('days'=>1,'weeks'=>7,'month'=>30);
     $days=$data['timeToElapse']*$t[$data['periodType']];
     $inp1=array(['impact','currentlyInfected',1,['reportedCases'],10],['severeImpact','currentlyInfected',1,['reportedCases'],50],
@@ -49,8 +40,8 @@ function covid19ImpactEstimator($data)
         ['severeImpact','casesForVentilatorsByRequestedTime',2,['severeImpact','infectionsByRequestedTime'],0.02],
         ['impact','dollarsInFlight',4,['impact','infectionsByRequestedTime','region','avgDailyIncomePopulation','avgDailyIncomeInUSD'],$days],
         ['severeImpact','dollarsInFlight',4,['severeImpact','infectionsByRequestedTime','region','avgDailyIncomePopulation','avgDailyIncomeInUSD'],$days]);
-    $d=doCompute($data1,$data,$inp1);
-    return $d;
+    $data=doCompute($data1,$data,$inp1);
+    return $data;
 }
 covid19ImpactEstimator($data);
 
