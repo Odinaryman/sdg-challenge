@@ -1,5 +1,7 @@
 <?php
 
+$data=json_encode($data);
+
 
 
 function doCompute($input_array,$data_array,$input_data)
