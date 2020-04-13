@@ -1,6 +1,7 @@
 <?php
-/*$input = trim(file_get_contents("PHP://input"));
-$your_var = json_decode($input)*/
+$input = trim(file_get_contents("PHP://input"));
+$data= json_decode($input,true);
+
 function trunc($g)
 {
     if($g<0)$g=intval(ceil($g));
@@ -27,6 +28,6 @@ function covid19ImpactEstimator($data)
     $data1['severeImpact']['casesForVentilatorsByRequestedTime']=trunc($data1['severeImpact']['infectionsByRequestedTime']*0.02);
     $data1['impact']['dollarsInFlight']=trunc(($data1['impact']['infectionsByRequestedTime']*$data['region']['avgDailyIncomePopulation']*$data['region']['avgDailyIncomeInUSD'])/$days);
     $data1['severeImpact']['dollarsInFlight']=trunc(($data1['severeImpact']['infectionsByRequestedTime']*$data['region']['avgDailyIncomePopulation']*$data['region']['avgDailyIncomeInUSD'])/$days);
-    return $data1;
+    return json_encode($data1);
 }
-
+echo covid19ImpactEstimator($data);
