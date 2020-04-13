@@ -30,4 +30,4 @@ function covid19ImpactEstimator($data)
     $data1['severeImpact']['dollarsInFlight']=trunc(($data1['severeImpact']['infectionsByRequestedTime']*$data['region']['avgDailyIncomePopulation']*$data['region']['avgDailyIncomeInUSD'])/$days);
     return json_encode($data1);
 }
-echo covid19ImpactEstimator($data);
+

@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="sdg challenge, covid-19, Africa, impact estimator, Andela">
     <title>Covid-19 Estimator</title>
     <link href="index.css" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script defer src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
 
 </head>
 
@@ -15,7 +18,7 @@
     <div class="row">
         <div class="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
-            <h3>Welcome</h3>
+            <h2>Welcome</h2>
             <p>You can now estimate the impact of the covid-19 pandemic across the many regions of the world.</p>
             <div class="register-covid"><span>#SDG-Challenge<span></span></div><br/>
         </div>
@@ -28,37 +31,46 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Region Name*" name="region" required data-region="region" value="" />
+                                    <input id="region" type="text" class="form-control" placeholder="Region Name*" name="region" required data-region="region" value="" />
+                                    <label for="region" class="d-none"></label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Population *" name="population" required data-population="population" value="" />
+                                    <input type="text" class="form-control" placeholder="Population *" id="population" name="population" required data-population="population" value="" />
+                                    <label for="population" class="d-none"></label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Average Age *" name="avgAge" required data-average-age="avgAge" value="" />
+                                    <input type="text" class="form-control" placeholder="Average Age *" id="avgAge" name="avgAge" required data-average-age="avgAge" value="" />
+                                    <label for="avgAge" class="d-none"></label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control"  placeholder="Average Daily Income*" name="avgDailyIncomeInUSD" required data-average-daily-income-in-USD="avgDailyIncomeInUSD" value="" />
+                                    <input type="text" class="form-control"  placeholder="Average Daily Income*" id="avgDailyIncomeInUSD" name="avgDailyIncomeInUSD" required data-average-daily-income-in-USD="avgDailyIncomeInUSD" value="" />
+                                    <label for="avgDailyIncomeInUSD" class="d-none"></label>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" required name="periodType" data-period-type="periodType">
-                                        <option value="days">Days</option>
+                                    <select class="form-control" required name="periodType" id="periodType" data-period-type="periodType">
+                                        <option selected value="days">Days</option>
                                         <option value="weeks">Weeks</option>
-                                        <option selected value="months">Months</option>
+                                        <option value="months">Months</option>
                                     </select>
+                                    <label for="periodType" class="d-none"></label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Average Daily Income Population *" name="avgDailyIncomePopulation" required data-average-daily-income-population="avgDailyIncomePopulation" value="" />
+                                    <input type="text" class="form-control" placeholder="Average Daily Income Population *" id="avgDailyIncomePopulation" name="avgDailyIncomePopulation" required data-average-daily-income-population="avgDailyIncomePopulation" value="" />
+                                    <label for="avgDailyIncomePopulation" class="d-none"></label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Time to Elapse *" name="timeToElapse" required data-time-to-elapse="timeToElapse" value="" />
+                                    <input type="text" class="form-control" placeholder="Time to Elapse *" id="timeToElapse" name="timeToElapse" required data-time-to-elapse="timeToElapse" value="" />
+                                    <label for="timeToElapse" class="d-none"></label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Reported Cases *" name="reportedCases" required data-reported-cases="reportedCases" value="" />
+                                    <input type="text" class="form-control" placeholder="Reported Cases *" id="reportedCases" name="reportedCases" required data-reported-cases="reportedCases" value="" />
+                                    <label for="reportedCases" class="d-none"></label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control"  placeholder="Total Hospital Beds*" name="totalHospitalBeds" required data-total-hospital-beds="totalHospitalBeds" value="" />
+                                    <input type="text" class="form-control"  placeholder="Total Hospital Beds*" id="totalHospitalBeds" name="totalHospitalBeds" required data-total-hospital-beds="totalHospitalBeds" value="" />
+                                    <label for="totalHospitalBeds" class="d-none"></label>
                                 </div>
                                 <input type="submit" data-go-estimate="go-estimate" class="btnRegister" onclick="confirmValidity()"  value="Estimate Impact"/>
                             </div>
