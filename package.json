@@ -9,6 +9,7 @@
     "lint": "phplint src/**/*.php"
   },
   "devDependencies": {
-    "phplint": "^2.0.1"
+    "phplint": "^2.0.1",
+    "purify-css": "^1.2.5"
   }
 }

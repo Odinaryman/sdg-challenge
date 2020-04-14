@@ -5,90 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Description" content="sdg challenge, covid-19, Africa, impact estimator, Andela">
     <title>Covid-19 Estimator</title>
-    <link href="index.css" rel="stylesheet" type="text/css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script  defer src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script defer src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
+    <link aria-disabled="true"  media="all" href="index.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-<div class="container register">
-    <div class="row">
-        <div class="col-md-3 register-left">
-            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="logo"/>
-            <h2 tabindex=“0”>Welcome</h2>
-            <p tabindex=“0”>You can now estimate the impact of the covid-19 pandemic across the many regions of the world.</p>
-            <div tabindex=“0” class="register-covid"><span>SDG Challenge<span></span></div><br/>
-        </div>
-        <div class="col-md-9 register-right">
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 tabindex=“0” class="register-heading">Enter Parameters to Estimate Impact</h3>
-                    <form id="estimator" action="javascript:;" role="form">
-                        <div class="row register-form">
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input aria-label="Region" aria-required=“true” id="region" type="text" class="form-control" placeholder="Region Name*" name="region" required data-region="region" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input aria-label="Population" aria-required=“true” type="text" class="form-control" placeholder="Population *" id="population" name="population" required data-population="population" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input aria-label="Average Age"  aria-required=“true” type="text" class="form-control" placeholder="Average Age *" id="avgAge" name="avgAge" required data-average-age="avgAge" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input aria-label="Average Daily Income" aria-required=“true” type="text" class="form-control"  placeholder="Average Daily Income*" id="avgDailyIncomeInUSD" name="avgDailyIncomeInUSD" required data-average-daily-income-in-USD="avgDailyIncomeInUSD" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <select aria-label="Period Type" class="form-control" required name="periodType" id="periodType" data-period-type="periodType">
-                                        <option  selected value="days" aria-selected="true">Days</option>
-                                        <option value="weeks">Weeks</option>
-                                        <option value="months">Months</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input aria-label="Average Daily Income Population" aria-required=“true” type="text" class="form-control" placeholder="Average Daily Income Population *" id="avgDailyIncomePopulation" name="avgDailyIncomePopulation" required data-average-daily-income-population="avgDailyIncomePopulation" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input aria-label="Time to Elapse" aria-required=“true” type="text" class="form-control" placeholder="Time to Elapse *" id="timeToElapse" name="timeToElapse" required data-time-to-elapse="timeToElapse" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input aria-label="reported Cases" aria-required=“true” type="text" class="form-control" placeholder="Reported Cases *" id="reportedCases" name="reportedCases" required data-reported-cases="reportedCases" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input aria-label="Total Hospital Beds" aria-required=“true” type="text" class="form-control"  placeholder="Total Hospital Beds*" id="totalHospitalBeds" name="totalHospitalBeds" required data-total-hospital-beds="totalHospitalBeds" value="" />
-                                </div>
-                                <button type="submit" data-go-estimate="go-estimate" class="btnRegister" onclick="confirmValidity()">Estimate</button>
-                            </div>
-                        </div>
-                    </form>
+<div class="container">
+    <nav role="navigation">
+        <h2>SDG Challenge</h2>
+    </nav>
+    <section>
+        <div class="main">
+            <h2>Estimate Covid-19 Impact</h2>
+            <form action="javascript:;" id="estimator" role="form">
+               <div class="form-div-2">
+                   <label for="region">Region</label>
+                   <input id="region" type="text" name="region" placeholder="Region Name*" required data-region="region" value="">
+               </div>
+                <div class="form-div-2">
+                    <label for="population">Population</label>
+                    <input type="text" placeholder="Population *" id="population" name="population" required data-population="population" value="" />
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="form-div-2">
+                    <label for="avgAge">Average Age</label>
+                    <input type="text" placeholder="Average Age *" id="avgAge" name="avgAge" required data-average-age="avgAge" value="" />
+                </div>
+                <div class="form-div-2">
+                    <label for="avgDailyIncomeInUSD">Average Daily Income in USD</label>
+                    <input type="text" placeholder="Average Daily Income*" id="avgDailyIncomeInUSD" name="avgDailyIncomeInUSD" required data-population="avgDailyIncomeInUSD" value="" />
+                </div>
+                <div class="form-div-2">
+                    <label for="avgDailyIncomePopulation">Average Daily Income Population</label>
+                    <input type="text" placeholder="Average Daily Income Population *" id="avgDailyIncomePopulation" name="avgDailyIncomePopulation" required data-average-daily-income-population="avgDailyIncomePopulation" value="" />
+                </div>
+                <div class="form-div-2">
+                    <label for="timeToElapse">Time to Elapse</label>
+                    <input type="text" placeholder="Time to Elapse *" id="timeToElapse" name="timeToElapse" required data-time-to-elapse="timeToElapse" value="" />
+                </div>
+                <div class="form-div-2">
+                    <label for="reportedCases">reported Cases</label>
+                    <input type="text" placeholder="Reported Cases *" id="reportedCases" name="reportedCases" required data-reported-cases="reportedCases" value="" />
+                </div>
+                <div class="form-div-2">
+                    <label for="totalHospitalBeds">Total Hospital Beds</label>
+                    <input type="text" placeholder="Total Hospital Beds*" id="totalHospitalBeds" name="totalHospitalBeds" required data-total-hospital-beds="totalHospitalBeds" value="" />
+                </div>
+                <div class=" form-div-2" >
+                    <label for="periodType">Period Type</label>
+                    <select required name="periodType" id="periodType" data-period-type="periodType">
+                        <option selected aria-selected="true" value="days" >Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months</option>
+                    </select>
+                </div>
 
+                <div class="form-div-1">
+                    <button type="submit" data-go-estimate="go-estimate" class="btnRegister" onclick="confirmValidity(this)">Estimate</button>
+                </div>
+            </form>
+        </div>
+    </section>
 </div>
+
 <script>
-    function confirmValidity(){
+
+    function confirmValidity(a){
+        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        xhr.open('POST','estimator.php',true);
         var form = document.getElementById('estimator');
+
         if(form.checkValidity()){
+            a.style.backgroundColor="green";
+            a.innerHTML="Done";
             var d={
-                region:{name:$("input[name=region]").val(),avgAge:parseFloat($("input[name=avgAge]").val()),avgDailyIncomeInUSD:parseFloat($("input[name=avgDailyIncomeInUSD]").val()),avgDailyIncomePopulation:parseFloat($("input[name=avgDailyIncomePopulation]").val())},
-                periodType:$("select[name=periodType] option:selected").val(),
-                timeToElapse:parseFloat($("input[name=timeToElapse]").val()),
-                reportedCases:parseFloat($("input[name=reportedCases]").val()),
-                population:parseFloat($("input[name=population]").val()),
-                totalHospitalBeds:parseFloat($("input[name=totalHospitalBeds]").val())
+                region:{name:document.getElementsByName("region")[0].value,avgAge:parseFloat(document.getElementsByName("avgAge")[0].value),
+                    avgDailyIncomeInUSD:parseFloat(document.getElementsByName("avgDailyIncomeInUSD")[0].value),
+                    avgDailyIncomePopulation:parseFloat(document.getElementsByName("avgDailyIncomePopulation")[0].value)},
+                periodType:document.getElementsByName("periodType")[0].value,
+                timeToElapse:parseFloat(document.getElementsByName("timeToElapse")[0].value),
+                reportedCases:parseFloat(document.getElementsByName("reportedCases")[0].value),
+                population:parseFloat(document.getElementsByName("population")[0].value),
+                totalHospitalBeds:parseFloat(document.getElementsByName("totalHospitalBeds")[0].value)
             }
             var json=JSON.stringify(d);
-            $.post('estimator.php',json,function(data,status){
-
-            })
+            console.log(d);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState>3 && xhr.status==200) console.log(xhr.responseText);
+            };
+            xhr.send(json);
         }
     }
 
