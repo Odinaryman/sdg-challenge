@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<div role="main" class="container register">
+<div class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="logo"/>
@@ -31,46 +31,37 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input aria-required=“true” id="region" type="text" class="form-control" placeholder="Region Name*" name="region" required data-region="region" value="" />
-                                    <label aria-hidden="true" for="region" class="d-none">Region</label>
+                                    <input aria-label="Region" aria-required=“true” id="region" type="text" class="form-control" placeholder="Region Name*" name="region" required data-region="region" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <input aria-required=“true” type="text" class="form-control" placeholder="Population *" id="population" name="population" required data-population="population" value="" />
-                                    <label aria-hidden="true" for="population" class="d-none">Population</label>
+                                    <input aria-label="Population" aria-required=“true” type="text" class="form-control" placeholder="Population *" id="population" name="population" required data-population="population" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <input aria-required=“true” type="text" class="form-control" placeholder="Average Age *" id="avgAge" name="avgAge" required data-average-age="avgAge" value="" />
-                                    <label aria-hidden="true" for="avgAge" class="d-none">Average Age</label>
+                                    <input aria-label="Average Age"  aria-required=“true” type="text" class="form-control" placeholder="Average Age *" id="avgAge" name="avgAge" required data-average-age="avgAge" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <input aria-required=“true” type="text" class="form-control"  placeholder="Average Daily Income*" id="avgDailyIncomeInUSD" name="avgDailyIncomeInUSD" required data-average-daily-income-in-USD="avgDailyIncomeInUSD" value="" />
-                                    <label aria-hidden="true" for="avgDailyIncomeInUSD" class="d-none">Average Daily Income</label>
+                                    <input aria-label="Average Daily Income" aria-required=“true” type="text" class="form-control"  placeholder="Average Daily Income*" id="avgDailyIncomeInUSD" name="avgDailyIncomeInUSD" required data-average-daily-income-in-USD="avgDailyIncomeInUSD" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" required name="periodType" id="periodType" data-period-type="periodType">
+                                    <select aria-label="Period Type" class="form-control" required name="periodType" id="periodType" data-period-type="periodType">
                                         <option  selected value="days" aria-selected="true">Days</option>
                                         <option value="weeks">Weeks</option>
                                         <option value="months">Months</option>
                                     </select>
-                                    <label aria-hidden="true" for="periodType" class="d-none">Period Type</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input aria-required=“true” type="text" class="form-control" placeholder="Average Daily Income Population *" id="avgDailyIncomePopulation" name="avgDailyIncomePopulation" required data-average-daily-income-population="avgDailyIncomePopulation" value="" />
-                                    <label aria-hidden="true" for="avgDailyIncomePopulation" class="d-none">Average Daily Income Population</label>
+                                    <input aria-label="Average Daily Income Population" aria-required=“true” type="text" class="form-control" placeholder="Average Daily Income Population *" id="avgDailyIncomePopulation" name="avgDailyIncomePopulation" required data-average-daily-income-population="avgDailyIncomePopulation" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <input aria-required=“true” type="text" class="form-control" placeholder="Time to Elapse *" id="timeToElapse" name="timeToElapse" required data-time-to-elapse="timeToElapse" value="" />
-                                    <label aria-hidden="true" for="timeToElapse" class="d-none">Time to Elapse</label>
+                                    <input aria-label="Time to Elapse" aria-required=“true” type="text" class="form-control" placeholder="Time to Elapse *" id="timeToElapse" name="timeToElapse" required data-time-to-elapse="timeToElapse" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <input aria-required=“true” type="text" class="form-control" placeholder="Reported Cases *" id="reportedCases" name="reportedCases" required data-reported-cases="reportedCases" value="" />
-                                    <label aria-hidden="true" for="reportedCases" class="d-none">reported Cases</label>
+                                    <input aria-label="reported Cases" aria-required=“true” type="text" class="form-control" placeholder="Reported Cases *" id="reportedCases" name="reportedCases" required data-reported-cases="reportedCases" value="" />
                                 </div>
                                 <div class="form-group">
-                                    <input aria-required=“true” type="text" class="form-control"  placeholder="Total Hospital Beds*" id="totalHospitalBeds" name="totalHospitalBeds" required data-total-hospital-beds="totalHospitalBeds" value="" />
-                                    <label aria-hidden="true" for="totalHospitalBeds" class="d-none">Total Hospital Beds</label>
+                                    <input aria-label="Total Hospital Beds" aria-required=“true” type="text" class="form-control"  placeholder="Total Hospital Beds*" id="totalHospitalBeds" name="totalHospitalBeds" required data-total-hospital-beds="totalHospitalBeds" value="" />
                                 </div>
                                 <button type="submit" data-go-estimate="go-estimate" class="btnRegister" onclick="confirmValidity()">Estimate</button>
                             </div>
