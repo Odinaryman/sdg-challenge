@@ -60,17 +60,17 @@
     border-bottom-left-radius: 1.5rem;
     border-top-right-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
-    color: #c00;
+    color: #550000;
     font-size: large;
 
 }
 .btnRegister{
     float: right;
-    margin-top: 10%;
+    margin-top: 15%;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: #ff0000;
+    background: #550000;
     color: #fff;
     font-weight: 600;
     width: 50%;
