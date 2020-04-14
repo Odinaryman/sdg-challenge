@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="sdg challenge, covid-19, Africa, impact estimator, Andela">
+    <title>Covid-19 Estimator</title>
+    <link aria-disabled="true"  media="all" href="index.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<div class="container">
+    <nav role="navigation">
+        <h2>SDG Challenge</h2>
+    </nav>
+    <section>
+        <div class="main">
+            <h2>Estimate Covid-19 Impact</h2>
+            <form action="javascript:;" id="estimator" role="form">
+               <div class="form-div-2">
+                   <label for="region">Region *</label>
+                   <input id="region" type="text" name="region" required data-region="region" value="">
+               </div>
+                <div class="form-div-2">
+                    <label for="population">Population *</label>
+                    <input type="text" id="population" name="population" required data-population="population" value="" />
+                </div>
+                <div class="form-div-2">
+                    <label for="avgAge">Average Age *</label>
+                    <input type="text" id="avgAge" name="avgAge" required data-average-age="avgAge" value="" />
+                </div>
+                <div class="form-div-2">
+                    <label for="avgDailyIncomeInUSD">Average Daily Income in USD *</label>
+                    <input type="text" id="avgDailyIncomeInUSD" name="avgDailyIncomeInUSD" required data-population="avgDailyIncomeInUSD" value="" />
+                </div>
+                <div class="form-div-2">
+                    <label for="avgDailyIncomePopulation">Average Daily Income Population *</label>
+                    <input type="text" id="avgDailyIncomePopulation" name="avgDailyIncomePopulation" required data-average-daily-income-population="avgDailyIncomePopulation" value="" />
+                </div>
+                <div class="form-div-2">
+                    <label for="timeToElapse">Time to Elapse *</label>
+                    <input type="text" id="timeToElapse" name="timeToElapse" required data-time-to-elapse="timeToElapse" value="" />
+                </div>
+                <div class="form-div-2">
+                    <label for="reportedCases">reported Cases *</label>
+                    <input type="text" id="reportedCases" name="reportedCases" required data-reported-cases="reportedCases" value="" />
+                </div>
+                <div class="form-div-2">
+                    <label for="totalHospitalBeds">Total Hospital Beds *</label>
+                    <input type="text" id="totalHospitalBeds" name="totalHospitalBeds" required data-total-hospital-beds="totalHospitalBeds" value="" />
+                </div>
+                <div class=" form-div-2" >
+                    <label for="periodType">Period Type</label>
+                    <select required name="periodType" id="periodType" data-period-type="periodType">
+                        <option selected aria-selected="true" value="days" >Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months</option>
+                    </select>
+                </div>
+
+                <div class="form-div-1">
+                    <button type="submit" data-go-estimate="go-estimate" class="btnRegister" onclick="confirmValidity(this)">Estimate</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+
+<script>
+
+    function confirmValidity(a){
+        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        xhr.open('POST','estimator.php',true);
+        var form = document.getElementById('estimator');
+
+        if(form.checkValidity()){
+            a.style.backgroundColor="green";
+            a.innerHTML="Done";
+            var d={
+                region:{name:document.getElementsByName("region")[0].value,avgAge:parseFloat(document.getElementsByName("avgAge")[0].value),
+                    avgDailyIncomeInUSD:parseFloat(document.getElementsByName("avgDailyIncomeInUSD")[0].value),
+                    avgDailyIncomePopulation:parseFloat(document.getElementsByName("avgDailyIncomePopulation")[0].value)},
+                periodType:document.getElementsByName("periodType")[0].value,
+                timeToElapse:parseFloat(document.getElementsByName("timeToElapse")[0].value),
+                reportedCases:parseFloat(document.getElementsByName("reportedCases")[0].value),
+                population:parseFloat(document.getElementsByName("population")[0].value),
+                totalHospitalBeds:parseFloat(document.getElementsByName("totalHospitalBeds")[0].value)
+            }
+            var json=JSON.stringify(d);
+            console.log(d);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState>3 && xhr.status==200) console.log(xhr.responseText);
+            };
+            xhr.send(json);
+        }
+    }
+
+</script>
+</body>
+
+</html>

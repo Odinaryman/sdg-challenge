@@ -1,0 +1,111 @@
+body{
+    float: left;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+.container{
+    width: 100%;
+    float: left;
+    height: auto;
+}
+nav{
+    background-color: #550000;
+    height: 50px;
+    padding: 10px 15px;
+    width: 100%;
+}
+nav h2{
+    color: white;
+}
+.main{
+    width: 50%;
+    float: left;
+    margin-left: 24%;
+    margin-right: auto;
+    margin-top:5%;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.3);
+    padding: 15px 0px;
+}
+.main h2{
+    text-align: center;
+    color: #550000;
+}
+section{
+    float: left;
+    width: 100%;
+}
+.form-div-2{
+    width: 43%;
+    padding: 10px 17px;
+    float: left;
+}
+.form-div-1{
+    width: 100%;
+    float: left;
+}
+.form-div-2 input{
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: black;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-div-2 select{
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: black;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btnRegister{
+    margin-top: 4%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #550000;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 24%;
+}
+label{
+    font-size: 14px;
+}
+
+
+@media screen and (max-width: 800px) {
+    .main{
+        width: 90%;
+        margin-left: 1%;
+    }
+    .form-div-2{
+        width: 85%;
+    }
+    .btnRegister{
+        margin-top: 5%;
+        width: 90%;
+        cursor: pointer;
+        text-align: center;
+        margin-left: 2%;
+        margin-right: auto;
+    }
+}
