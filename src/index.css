@@ -10,7 +10,7 @@ body{
     height: auto;
 }
 nav{
-    background-color: black;
+    background-color: #550000;
     height: 50px;
     padding: 10px 15px;
     width: 100%;
@@ -29,6 +29,7 @@ nav h2{
 }
 .main h2{
     text-align: center;
+    color: #550000;
 }
 section{
     float: left;
@@ -84,7 +85,10 @@ section{
     width: 50%;
     cursor: pointer;
     text-align: center;
-    margin-left: 20px;
+    margin-left: 24%;
+}
+label{
+    font-size: 14px;
 }
 
 
