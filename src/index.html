@@ -6,6 +6,7 @@
     <meta name="Description" content="sdg challenge, covid-19, Africa, impact estimator, Andela">
     <title>Covid-19 Estimator</title>
     <link aria-disabled="true"  media="all" href="index.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -15,8 +16,8 @@
         <h2>SDG Challenge</h2>
     </nav>
     <section>
-        <div class="main">
-            <h2>Estimate Covid-19 Impact</h2>
+        <div id="main" class="main">
+            <h2 id="init_h2">Estimate Covid-19 Impact</h2>
             <form action="javascript:;" id="estimator" role="form">
                <div class="form-div-2">
                    <label for="region">Region *</label>
@@ -43,7 +44,7 @@
                     <input type="text" id="timeToElapse" name="timeToElapse" required data-time-to-elapse="timeToElapse" value="" />
                 </div>
                 <div class="form-div-2">
-                    <label for="reportedCases">reported Cases *</label>
+                    <label for="reportedCases">Reported Cases *</label>
                     <input type="text" id="reportedCases" name="reportedCases" required data-reported-cases="reportedCases" value="" />
                 </div>
                 <div class="form-div-2">
@@ -63,6 +64,24 @@
                     <button type="submit" data-go-estimate="go-estimate" class="btnRegister" onclick="confirmValidity(this)">Estimate</button>
                 </div>
             </form>
+            <div id="scenarios" class="scenarios" style="display: none">
+                <div class="first-enclose">
+                    <div class="best-case">
+                        <h4>Best Case Scenario</h4>
+                    </div>
+                    <div class="best-content" id="best-content">
+
+                    </div>
+                </div>
+                <div class="first-enclose">
+                    <div class="worst-case">
+                        <h4>Worst Case Scenario</h4>
+                    </div>
+                    <div class="best-content" id="worst-content">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </div>
@@ -91,10 +110,49 @@
             console.log(d);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function() {
-                if (xhr.readyState>3 && xhr.status==200) console.log(xhr.responseText);
+                if (xhr.readyState>3 && xhr.status==200) handleResponse(xhr.responseText);
             };
             xhr.send(json);
         }
+    }
+
+    function handleResponse(data){
+        var obj=JSON.parse(data);
+        var form=document.getElementById('estimator');
+        form.style.display='none';
+        document.getElementById('scenarios').style.display='block';
+        document.getElementById('init_h2').innerHTML='Covid-19 Impact Estimates in '+obj.data.region.name+' Based on Different Scenarios';
+        var par1=document.createElement('P');
+        par1.innerHTML='This estimates assumes a period of '+ obj.data.timeToElapse +' days with '+ obj.data.reportedCases +' current reported cases';
+        var main=document.getElementById('main');
+        main.insertBefore(par1,form);
+        var icons=['fa-hotel','fa-user-md','fa-hospital-o','fa-plus-square','fa-dollar','fa-group','fa-stethoscope'];
+        var desc=['Available Hospital Beds', 'Severe Cases', 'Cases Requiring Ventilators',
+            'Cases in ICU', 'Lost USD', 'Currently Infected Cases', 'Currently Estimated Cases'];
+        var inp=["hospitalBedsByRequestedTime","severeCasesByRequestedTime","casesForVentilatorsByRequestedTime","casesForICUByRequestedTime",
+            "dollarsInFlight","currentlyInfected","infectionsByRequestedTime"];
+        for(x in obj){
+            if(x=="data")continue;else if (x=='impact')cases='best-content';else cases='worst-content';
+            for(var j=0;j<desc.length;j++){
+                var circle_cont=document.createElement('DIV');
+                circle_cont.className='circle-container';
+                var circle=document.createElement('DIV');
+                circle.className='circle';
+                circle_cont.appendChild(circle);
+                var icon=document.createElement('I');
+                icon.className='fa '+icons[j];
+                circle.appendChild(icon);
+                var span=document.createElement('SPAN');
+                span.innerHTML=obj[x][inp[j]];
+                circle.appendChild(span);
+                var par=document.createElement('P');
+                par.innerHTML=desc[j];
+                circle.appendChild(par);
+                document.getElementById(cases).appendChild(circle_cont);
+            }
+            console.log(obj[x]);
+        }
+
     }
 
 </script>
