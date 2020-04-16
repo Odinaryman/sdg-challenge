@@ -7,6 +7,7 @@
     <title>Covid-19 Estimator</title>
     <link aria-disabled="true"  media="all" href="index.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 
@@ -107,7 +108,7 @@
                 totalHospitalBeds:parseFloat(document.getElementsByName("totalHospitalBeds")[0].value)
             }
             var json=JSON.stringify(d);
-            console.log(d);
+            //console.log(d);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function() {
                 if (xhr.readyState>3 && xhr.status==200) handleResponse(xhr.responseText);
@@ -118,6 +119,8 @@
 
     function handleResponse(data){
         var obj=JSON.parse(data);
+        console.log(JSON.stringify(obj));
+        console.log('here');
         var form=document.getElementById('estimator');
         form.style.display='none';
         document.getElementById('scenarios').style.display='block';
